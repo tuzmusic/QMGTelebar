@@ -1,5 +1,9 @@
 import React from "react";
 import { Text, View } from "react-native";
+import { combineReducers, createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import createSagaMiddleware from "redux-saga";
+import type { Saga } from "redux-saga";
 
 export default function App() {
   return (
