@@ -14,9 +14,6 @@ export default function App() {
   return (
     <Provider store={store}>
       <AppNavigator />
-      {/* <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View> */}
     </Provider>
   );
 }

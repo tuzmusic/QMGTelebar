@@ -10,34 +10,47 @@ import {
 } from "react-navigation";
 import ProductsListScreen from "../screens/ProductsListScreen";
 import TabBarIcon from "../components/TabBarIcon";
+import { ListStack } from "./TabsAndStacks";
 
-const ListScreen = {
-  screen: ProductsListScreen,
-  navigationOptions: { title: "Products" }
-};
+let initialRouteName;
+initialRouteName = "List";
 
-const ListStack = createStackNavigator({ ListScreen });
-ListStack.navigationOptions = {
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === "ios" ? "ios-list" : "md-list"}
-    />
-  )
-};
+/* TAB NAV */
+
+const TabNavigator = createBottomTabNavigator(
+  { List: ListStack },
+  { initialRouteName }
+);
+
+class TabContainer extends Component<Object> {
+  static router = TabNavigator.router;
+  componentDidMount() {
+    // this.props.getDeals();
+  }
+
+  render() {
+    return <TabNavigator navigation={this.props.navigation} />;
+  }
+}
+
+const connectedTabContainer = connect()(TabContainer);
+
+/* SWITCH NAV */
 
 const SwitchNavigator = createSwitchNavigator({
-  Main: connect()(ListStack)
+  Main: connectedTabContainer
 });
 
 const AppNavigator = createAppContainer(SwitchNavigator);
+
+/* APP NAV */
 
 type AppProps = {
   navigation: Object
 };
 
 class AppContainer extends Component<AppProps> {
-  // static router = TabNavigator.router;
+  static router = TabNavigator.router;
   render() {
     return (
       <View style={{ flex: 1 }}>
