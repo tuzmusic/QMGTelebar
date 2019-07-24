@@ -4,6 +4,7 @@ import { combineReducers, createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
 import type { Saga } from "redux-saga";
+import productsReducer from "./src/redux/reducers/productsReducer";
 
 export default function App() {
   return (
