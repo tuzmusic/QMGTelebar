@@ -6,15 +6,17 @@ import createSagaMiddleware from "redux-saga";
 import type { Saga } from "redux-saga";
 import productsReducer from "./src/redux/reducers/productsReducer";
 import productSaga from "./src/redux/actions/productActions";
+import AppNavigator from "./src/containers/AppNavigator";
 
 const store = setupAndReturnStore();
 
 export default function App() {
   return (
     <Provider store={store}>
-      <View style={styles.container}>
+      <AppNavigator />
+      {/* <View style={styles.container}>
         <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      </View> */}
     </Provider>
   );
 }
