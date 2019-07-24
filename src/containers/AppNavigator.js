@@ -26,7 +26,11 @@ ListStack.navigationOptions = {
   )
 };
 
-const AppNavigator = createAppContainer(ListStack);
+const SwitchNavigator = createSwitchNavigator({
+  Main: connect()(ListStack)
+});
+
+const AppNavigator = createAppContainer(SwitchNavigator);
 
 type AppProps = {
   navigation: Object
