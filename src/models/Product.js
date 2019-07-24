@@ -1,6 +1,7 @@
 // @flow
 import html from "html-to-text";
-import type { ProductCollection } from "../redux/reducers/productsReducer";
+
+export type ProductCollection = { [number]: Product };
 
 export default class Product {
   // #region TYPE PROPERTY DEFINITIONS

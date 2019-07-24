@@ -4,10 +4,8 @@ import axios from "axios";
 import type { Saga } from "redux-saga";
 import { call, put, select, takeEvery, all } from "redux-saga/effects";
 import Product from "../../models/Product";
-import type {
-  ProductAction,
-  ProductCollection
-} from "../reducers/productsReducer";
+import type { ProductCollection } from "../../models/Product";
+import type { ProductAction } from "../reducers/productsReducer";
 
 export function fetchProducts(): ProductAction {
   return { type: "FETCH_PRODUCTS_START" };

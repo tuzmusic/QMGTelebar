@@ -1,6 +1,6 @@
 // @flow
 import Product from "../../models/Product";
-
+import type { ProductCollection } from "../../models/Product";
 type ProductState = {
   +products: ProductCollection,
   +error: string,
@@ -44,7 +44,3 @@ export type ProductAction =
   | FETCH_PRODUCTS_START
   | FETCH_PRODUCTS_SUCCESS
   | FETCH_PRODUCTS_FAILURE;
-
-/* OTHER TYPES */
-
-export type ProductCollection = { [number]: Product };
