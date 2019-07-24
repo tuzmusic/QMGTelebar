@@ -11,6 +11,7 @@ import {
 import ProductsListScreen from "../screens/ProductsListScreen";
 import TabBarIcon from "../components/TabBarIcon";
 import { ListStack } from "./TabsAndStacks";
+import { fetchProducts } from "../redux/actions/productActions";
 
 let initialRouteName;
 initialRouteName = "List";
@@ -25,7 +26,7 @@ const TabNavigator = createBottomTabNavigator(
 class TabContainer extends Component<Object> {
   static router = TabNavigator.router;
   componentDidMount() {
-    // this.props.getDeals();
+    this.props.fetchProducts();
   }
 
   render() {
@@ -33,7 +34,10 @@ class TabContainer extends Component<Object> {
   }
 }
 
-const connectedTabContainer = connect()(TabContainer);
+const connectedTabContainer = connect(
+  null,
+  { fetchProducts }
+)(TabContainer);
 
 /* SWITCH NAV */
 
